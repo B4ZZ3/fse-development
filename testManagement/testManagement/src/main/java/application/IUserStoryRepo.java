@@ -5,6 +5,6 @@ import domain.model.UserStoryId;
 
 public interface IUserStoryRepo {
 	
-	public UserStory fingById(UserStoryId userStoryId);
+	public UserStory findById(UserStoryId userStoryId);
 	public void save(UserStory userStory);
 }

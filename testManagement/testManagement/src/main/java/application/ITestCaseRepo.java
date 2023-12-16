@@ -5,7 +5,7 @@ import domain.model.TestCaseId;
 
 public interface ITestCaseRepo {
 	
-	public TestCase fingById(TestCaseId testCaseId);
+	public TestCase findById(TestCaseId testCaseId);
 	public void save(TestCase testCase);
 
 }
