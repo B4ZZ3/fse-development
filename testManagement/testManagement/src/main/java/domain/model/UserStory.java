@@ -19,6 +19,14 @@ public class UserStory {
 		this.testCases = new ArrayList<TestCase>();
 	}
 	
+	public UserStory(UserStoryId userStoryId, String storyStatus, int storyPoints, String storyDescription) {
+		this.userStoryId = userStoryId;
+		this.storyStatus = StoryStatus.valueOf(storyStatus);
+		this.storyPoints = storyPoints;
+		this.storyDescription = storyDescription;
+		this.testCases = new ArrayList<TestCase>();
+	}
+	
 	public UserStoryId getUserStoryId() {
 		return userStoryId;
 	}
