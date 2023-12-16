@@ -1,8 +1,8 @@
-package adapter.database;
+package com.example.testManagement.adapter.database;
 
-import application.IUserStoryRepo;
-import domain.model.UserStory;
-import domain.model.UserStoryId;
+import com.example.testManagement.application.IUserStoryRepo;
+import com.example.testManagement.domain.model.UserStory;
+import com.example.testManagement.domain.model.UserStoryId;
 
 public class DBUserStoryRepo implements IUserStoryRepo{
 

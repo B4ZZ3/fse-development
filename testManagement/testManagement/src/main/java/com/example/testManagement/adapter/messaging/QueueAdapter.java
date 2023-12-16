@@ -1,17 +1,16 @@
-package adapter.messaging;
+package com.example.testManagement.adapter.messaging;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.amqp.core.AmqpTemplate;
 
+import com.example.testManagement.domain.model.TestCase;
+import com.example.testManagement.domain.model.TestCaseTO;
+import com.example.testManagement.domain.model.UserStory;
+import com.example.testManagement.domain.service.DomainEvent;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import domain.model.TestCase;
-import domain.model.TestCaseTO;
-import domain.model.UserStory;
-import domain.service.DomainEvent;
 
 public class QueueAdapter implements IMessageQueue{
 

@@ -1,12 +1,12 @@
-package domain.service;
+package com.example.testManagement.domain.service;
 
-import adapter.messaging.IMessageQueue;
-import application.ITestCaseRepo;
-import application.IUserStoryRepo;
-import domain.model.StoryStatus;
-import domain.model.TestCase;
-import domain.model.UserStory;
-import domain.model.UserStoryId;
+import com.example.testManagement.adapter.messaging.IMessageQueue;
+import com.example.testManagement.application.ITestCaseRepo;
+import com.example.testManagement.application.IUserStoryRepo;
+import com.example.testManagement.domain.model.StoryStatus;
+import com.example.testManagement.domain.model.TestCase;
+import com.example.testManagement.domain.model.UserStory;
+import com.example.testManagement.domain.model.UserStoryId;
 
 public class ChangeStatus {
 

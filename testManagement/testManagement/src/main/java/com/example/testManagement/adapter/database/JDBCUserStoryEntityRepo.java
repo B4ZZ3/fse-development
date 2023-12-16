@@ -1,4 +1,4 @@
-package adapter.database;
+package com.example.testManagement.adapter.database;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

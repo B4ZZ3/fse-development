@@ -1,8 +1,8 @@
-package application;
+package com.example.testManagement.application;
 
-import domain.model.UserStory;
-import domain.model.UserStoryId;
-import domain.service.ChangeStatus;
+import com.example.testManagement.domain.model.UserStory;
+import com.example.testManagement.domain.model.UserStoryId;
+import com.example.testManagement.domain.service.ChangeStatus;
 
 public class UserStoryService implements IUserStoryService{
 	

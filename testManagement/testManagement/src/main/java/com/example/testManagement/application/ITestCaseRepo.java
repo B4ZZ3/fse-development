@@ -1,10 +1,10 @@
-package application;
+package com.example.testManagement.application;
 
 import java.util.Collection;
 
-import domain.model.TestCase;
-import domain.model.TestCaseId;
-import domain.model.UserStoryId;
+import com.example.testManagement.domain.model.TestCase;
+import com.example.testManagement.domain.model.TestCaseId;
+import com.example.testManagement.domain.model.UserStoryId;
 
 public interface ITestCaseRepo {
 	

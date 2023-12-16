@@ -1,4 +1,4 @@
-package domain.model;
+package com.example.testManagement.domain.model;
 
 import java.util.ArrayList;
 import java.util.Collection;

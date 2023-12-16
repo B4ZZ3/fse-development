@@ -1,4 +1,4 @@
-package application;
+package com.example.testManagement.application;
 
 public interface IUserStoryService {
 

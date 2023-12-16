@@ -1,4 +1,4 @@
-package adapter;
+package com.example.testManagement.adapter;
 
 import java.util.Collection;
 
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import application.UserStoryService;
+import com.example.testManagement.application.UserStoryService;
 
 
 
@@ -25,17 +25,17 @@ public class UserStoryController {
 	}
 	
 	/*
-	 * curl -X POST http://localhost:8080/testManager/userStoryStatus/1
+	 * curl -X GET http://localhost:8080/testManager/userStoryStatus/1
 	 */		
-	@GetMapping("userStoryStatus/{id}")
+	@GetMapping("/userStoryStatus/{id}")
 	public String showStatusUserStory (@PathVariable ("id") int id) {
 		return userStoryService.showStatus(id);
 	}
 	
 	/*
-	 * curl -X POST http://localhost:8080/testManager/userStoryStatusToReady/1
+	 * curl -X GET http://localhost:8080/testManager/userStoryStatusToReady/1
 	 */	
-	@GetMapping("changeUserStoryStatus/{id}")
+	@GetMapping("/changeUserStoryStatus/{id}")
 	public boolean changeStatusUserStory (@PathVariable ("id") int id) {
 		return userStoryService.changeStatus(id);
 	}

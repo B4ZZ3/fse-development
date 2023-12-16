@@ -1,14 +1,9 @@
-package adapter.database;
-
-import java.util.ArrayList;
-import java.util.Collection;
+package com.example.testManagement.adapter.database;
 
 import org.springframework.data.annotation.Id;
 
-import domain.model.StoryStatus;
-import domain.model.TestCase;
-import domain.model.UserStory;
-import domain.model.UserStoryId;
+import com.example.testManagement.domain.model.UserStory;
+import com.example.testManagement.domain.model.UserStoryId;
 
 public class UserStoryEntity {
 

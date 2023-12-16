@@ -1,4 +1,4 @@
-package domain.service;
+package com.example.testManagement.domain.service;
 
 public class DomainEvent {
 
