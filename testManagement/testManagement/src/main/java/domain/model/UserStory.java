@@ -1,17 +1,22 @@
 package domain.model;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 public class UserStory {
 	
 	UserStoryId userStoryId;
 	StoryStatus storyStatus;
 	int storyPoints;
 	String storyDescription;
+	Collection<TestCase> testCases;
 	
 	public UserStory(UserStoryId userStoryId, int storyPoints, String storyDescription) {
 		this.userStoryId = userStoryId;
 		this.storyStatus = StoryStatus.IN_PROGRESS;
 		this.storyPoints = storyPoints;
 		this.storyDescription = storyDescription;
+		this.testCases = new ArrayList<TestCase>();
 	}
 	
 	public UserStoryId getUserStoryId() {
@@ -40,6 +45,18 @@ public class UserStory {
 	
 	public String getStoryDescription() {
 		return storyDescription;
+	}
+	
+	public void addTestCase(TestCase testCase) {
+		this.testCases.add(testCase);
+	}
+	
+	public Collection<TestCase> getAllTestCases() {
+		return testCases;
+	}
+	
+	public void setTestCases(Collection<TestCase> testCases) {
+		this.testCases = testCases;
 	}
 	
 	public int hashCode() {
