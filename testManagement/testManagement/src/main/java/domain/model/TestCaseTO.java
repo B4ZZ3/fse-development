@@ -14,7 +14,7 @@ public class TestCaseTO {
 	
 	public TestCaseTO(TestCase testCase) {
 		this.id = testCase.getTestCaseId().getId();
-		this.testStatus = testCase.getTestStatus().toString();
+		this.testStatus = testCase.getTestStatus().name();
 		this.testDescription = testCase.getTestDescription();
 	}
 	
