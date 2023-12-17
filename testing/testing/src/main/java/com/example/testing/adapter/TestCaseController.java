@@ -1,4 +1,4 @@
-package adapter;
+package com.example.testing.adapter;
 
 public class TestCaseController {
 
