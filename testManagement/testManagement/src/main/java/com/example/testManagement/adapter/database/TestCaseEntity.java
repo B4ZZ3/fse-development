@@ -1,5 +1,7 @@
 package com.example.testManagement.adapter.database;
 
+import org.springframework.data.annotation.Id;
+
 import com.example.testManagement.domain.model.TestCase;
 import com.example.testManagement.domain.model.TestCaseId;
 import com.example.testManagement.domain.model.UserStory;
@@ -7,6 +9,7 @@ import com.example.testManagement.domain.model.UserStoryId;
 
 public class TestCaseEntity {
 
+	@Id
 	int id;
 	String testStatus;
 	String testDescription;
