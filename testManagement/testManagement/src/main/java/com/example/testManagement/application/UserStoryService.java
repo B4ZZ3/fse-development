@@ -7,12 +7,10 @@ import com.example.testManagement.domain.service.ChangeStatus;
 public class UserStoryService implements IUserStoryService{
 	
 	private IUserStoryRepo userStoryRepo;
-	private ITestCaseRepo testCaseRepo;
 	private ChangeStatus domainService;
 	
-	public UserStoryService (IUserStoryRepo userStoryRepo, ITestCaseRepo testCaseRepo, ChangeStatus domainService) {
+	public UserStoryService (IUserStoryRepo userStoryRepo, ChangeStatus domainService) {
 		this.userStoryRepo = userStoryRepo;
-		this.testCaseRepo = testCaseRepo;
 		this.domainService = domainService;
 	}
 
