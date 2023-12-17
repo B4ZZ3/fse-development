@@ -6,8 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.example.testManagement.adapter.database.JDBCTestCaseEntityRepo;
-import com.example.testManagement.adapter.database.TestCaseEntity;
 import com.example.testing.application.ITestCaseRepo;
 import com.example.testing.domain.model.TestCase;
 import com.example.testing.domain.model.TestCaseId;
