@@ -13,9 +13,8 @@ import com.example.testing.domain.model.TestStatus;
 
 @Component
 public class DBTestCaseRepo implements ITestCaseRepo {
-
 	
-private final JDBCTestCaseEntityRepo jdbcTestCaseEntityRepo;
+	private final JDBCTestCaseEntityRepo jdbcTestCaseEntityRepo;
 	
 	@Autowired
 	public DBTestCaseRepo(JDBCTestCaseEntityRepo jdbcTestCaseEntityRepo) {
