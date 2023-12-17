@@ -12,6 +12,12 @@ public class TestCase {
 		this.testDescription = testDescription;
 	}
 	
+	public TestCase(TestCaseId testCaseId, String testStatus, String testDescription) {
+		this.testCaseId = testCaseId;
+		this.testStatus = StoryStatus.valueOf(testStatus);
+		this.testDescription = testDescription;
+	}
+	
 	public TestCaseId getTestCaseId() {
 		return testCaseId;
 	}
