@@ -4,6 +4,7 @@ import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 import com.example.testManagement.adapter.database.DBTestCaseRepo;
 import com.example.testManagement.adapter.database.DBUserStoryRepo;
@@ -31,11 +32,13 @@ public class BeanConfiguration {
 	 }
 	 
 	 @Bean
+	 @Primary
 	 IUserStoryRepo userStoryRepo(JDBCUserStoryEntityRepo jdbcUserStoryEntityRepo) {
 		 return new DBUserStoryRepo(jdbcUserStoryEntityRepo);
 	 }
 	 
 	 @Bean
+	 @Primary
 	 ITestCaseRepo testCaseRepo(JDBCTestCaseEntityRepo jdbcTestCaseEntityRepo) {
 		 return new DBTestCaseRepo(jdbcTestCaseEntityRepo);
 	 }

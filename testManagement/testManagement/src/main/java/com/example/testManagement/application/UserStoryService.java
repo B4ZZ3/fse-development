@@ -15,8 +15,7 @@ public class UserStoryService implements IUserStoryService{
 	}
 
 	@Override
-	public boolean changeStatus(int id) {
-		
+	public boolean changeStatus(int id) {		
 		return domainService.changeStatus(id);
 	}
 
