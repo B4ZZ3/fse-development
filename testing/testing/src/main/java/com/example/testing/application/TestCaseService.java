@@ -48,9 +48,22 @@ public class TestCaseService implements ITestCaseService {
 	}
 
 	@Override
-	public boolean processTestCases(Collection<TestCaseTO> testCaseListeTO) {
-		// TODO Auto-generated method stub
-		return false;
+	public String showAllTestCases() {
+		String allTestCases = "";
+		
+		Collection<TestCase> testCases = testCaseRepo.findAllTestCases();
+		
+		for(TestCase item : testCases) {
+			if(item.getTestStatus().name() == "STARTED")
+				allTestCases += item.toString();
+		}
+		
+		return allTestCases;
 	}
 
+	@Override
+	public boolean processTestCases(Collection<TestCaseTO> testCaseListeTO) {
+		
+		return false;
+	}
 }

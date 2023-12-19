@@ -1,6 +1,7 @@
 package com.example.testing.domain.model;
 
 public enum TestStatus {
+	WAITING("waiting"),
 	STARTED("started"),
 	NOT_APPROVED("not approved"),
 	APPROVED("approved");

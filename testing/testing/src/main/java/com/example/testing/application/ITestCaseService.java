@@ -9,4 +9,5 @@ public interface ITestCaseService {
 	public boolean changeStatusToApproved(int id);
 	public boolean changeStatusToNotApproved(int id);
 	public boolean processTestCases (Collection<TestCaseTO> testCaseListeTO);
+	public String showAllTestCases();
 }

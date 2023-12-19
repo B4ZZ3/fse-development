@@ -1,5 +1,6 @@
 package com.example.testing.adapter.database;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -32,9 +33,14 @@ public class DBTestCaseRepo implements ITestCaseRepo {
 	}
 
 	@Override
-	public Collection<TestCase> findByTestStatus(TestStatus testStatus) {
-		// TODO Auto-generated method stub
-		return null;
+	public Collection<TestCase> findAllTestCases() {
+		Collection<TestCase> testCases = new ArrayList<TestCase>();	
+		Iterable<TestCaseEntity> testCasesEntity = jdbcTestCaseEntityRepo.findAll();
+		
+		for (TestCaseEntity item : testCasesEntity) {
+			testCases.add(item.toDomain());
+		}	
+		return testCases;
 	}
 
 	@Override

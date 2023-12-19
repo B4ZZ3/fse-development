@@ -22,6 +22,14 @@ public class TestCaseController {
 	}
 	
 	/*
+	 * curl -X GET http://localhost:8090/testing/showAllTestCases
+	 */	
+	@GetMapping("/showAllTestCases")
+	public String showAllTestCases() {
+		return testCaseService.showAllTestCases();
+	}
+	
+	/*
 	 * curl -X GET http://localhost:8090/testing/approved/1
 	 */	
 	@GetMapping("/approved/{id}")

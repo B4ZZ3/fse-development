@@ -1,16 +1,25 @@
 package com.example.testing.adapter.database;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
 
 import com.example.testing.domain.model.TestCase;
 import com.example.testing.domain.model.TestCaseId;
 
+@Table(name="TEST_CASE")
 public class TestCaseEntity {
 
 	@Id
 	int id;
+	@Column(value = "TESTSTATUS")
 	String testStatus;
+	@Column(value = "TESTDESCRIPTION")
 	String testDescription;
+	
+	public TestCaseEntity() {
+		
+	}
 	
 	public TestCaseEntity(int testCaseId, String testStatus, String testDescription) {
 		this.id = testCaseId;

@@ -9,6 +9,6 @@ import com.example.testing.domain.model.TestStatus;
 public interface ITestCaseRepo {
 
 	public TestCase findById(TestCaseId testCaseId);
-	public Collection<TestCase> findByTestStatus(TestStatus testStatus);
+	public Collection<TestCase> findAllTestCases();
 	public void save(TestCase testCase);
 }

@@ -2,6 +2,7 @@ package com.example.testing.adapter;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 import com.example.testing.adapter.database.DBTestCaseRepo;
 import com.example.testing.adapter.database.JDBCTestCaseEntityRepo;
@@ -19,6 +20,7 @@ public class BeanConfiguration {
 	 }
 	
 	 @Bean
+	 @Primary
 	 ITestCaseRepo testCaseRepo(JDBCTestCaseEntityRepo jdbcTestCaseEntityRepo) {
 		 return new DBTestCaseRepo(jdbcTestCaseEntityRepo);
 	 }
