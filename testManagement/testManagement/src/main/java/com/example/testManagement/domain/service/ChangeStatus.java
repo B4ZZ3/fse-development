@@ -1,5 +1,7 @@
 package com.example.testManagement.domain.service;
 
+import java.util.Collection;
+
 import com.example.testManagement.adapter.messaging.IMessageQueue;
 import com.example.testManagement.application.ITestCaseRepo;
 import com.example.testManagement.application.IUserStoryRepo;
@@ -24,24 +26,26 @@ public class ChangeStatus {
 		
 		boolean findAllTestCases = true;
 		
-		for(TestCase testCase: testCaseRepo.findByUserStoryId(new UserStoryId(id))) {		
+		for(TestCase testCase : testCaseRepo.findByUserStoryId(new UserStoryId(id))) {		
 			if (testCase == null) {
  	 			findAllTestCases = false;
  	 		}
 		}
 		
 		if(findAllTestCases) {
-			for(TestCase testCase: testCaseRepo.findByUserStoryId(new UserStoryId(id))) {
-				testCase.changeTestStatus(StoryStatus.READY_FOR_TEST);
-				testCaseRepo.save(testCase);
-			}
-			
 			UserStory userStory = userStoryRepo.findById(new UserStoryId(id));
 			userStory.changeStoryStatus(StoryStatus.READY_FOR_TEST);
 			userStoryRepo.save(userStory);
 			
-			DomainEvent statusChanged = new DomainEvent("statusChanged", userStory);
-			messageQueue.send(statusChanged);
+			Collection<TestCase> testCases = testCaseRepo.findByUserStoryId(new UserStoryId(id));
+			
+			for(TestCase testCase : testCases) {
+				testCase.changeTestStatus(StoryStatus.READY_FOR_TEST);
+				testCaseRepo.save(testCase, id);
+			}
+			
+			/*DomainEvent statusChanged = new DomainEvent("statusChanged", testCases);
+			messageQueue.send(statusChanged);*/
 			
 			return true;
 		}

@@ -48,8 +48,8 @@ public class DBTestCaseRepo implements ITestCaseRepo {
 	}
 
 	@Override
-	public void save(TestCase testCase) {
-		jdbcTestCaseEntityRepo.save(new TestCaseEntity(testCase));
+	public void save(TestCase testCase, int storyId) {
+		jdbcTestCaseEntityRepo.save(new TestCaseEntity(testCase, storyId));
 	}
 
 }

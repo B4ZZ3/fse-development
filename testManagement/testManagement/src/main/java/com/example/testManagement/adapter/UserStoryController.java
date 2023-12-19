@@ -36,9 +36,9 @@ public class UserStoryController {
 	}
 	
 	/*
-	 * curl -X GET http://localhost:8080/testManager/userStoryStatusToReady/1
+	 * curl -X GET http://localhost:8080/testManager/changeUserStoryStatusToReady/1
 	 */	
-	@GetMapping("/changeUserStoryStatus/{id}")
+	@GetMapping("/changeUserStoryStatusToReady/{id}")
 	public boolean changeStatusUserStory (@PathVariable ("id") int id) {
 		return userStoryService.changeStatus(id);
 	}

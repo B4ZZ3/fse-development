@@ -10,6 +10,6 @@ public interface ITestCaseRepo {
 	
 	public TestCase findById(TestCaseId testCaseId);
 	public Collection<TestCase> findByUserStoryId(UserStoryId userStoryId);
-	public void save(TestCase testCase);
+	public void save(TestCase testCase, int storyId);
 
 }

@@ -36,6 +36,13 @@ public class TestCaseEntity {
 		this.testDescription = testCase.getTestDescription();
 	}
 	
+	public TestCaseEntity(TestCase testCase, int storyId) {
+		this.id = testCase.getTestCaseId().getId();
+		this.testStatus = testCase.getTestStatus().name();
+		this.testDescription = testCase.getTestDescription();
+		this.storyId = storyId;
+	}
+	
 	public int getTestCaseId() {
 		return id;
 	}
