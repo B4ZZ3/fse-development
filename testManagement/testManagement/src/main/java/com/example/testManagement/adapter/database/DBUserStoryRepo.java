@@ -1,5 +1,7 @@
 package com.example.testManagement.adapter.database;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,19 @@ public class DBUserStoryRepo implements IUserStoryRepo{
 	@Autowired
 	public DBUserStoryRepo(JDBCUserStoryEntityRepo jdbcUserStoryEntityRepo) {
 		this.jdbcUserStoryEntityRepo = jdbcUserStoryEntityRepo;
+	}
+	
+	@Override
+	public Collection<UserStory> findAll() {
+		Collection<UserStory> userStories = new ArrayList<UserStory>();
+		
+		Iterable<UserStoryEntity> userStorysEntity = jdbcUserStoryEntityRepo.findAll();
+		
+		for (UserStoryEntity item : userStorysEntity) {
+			userStories.add(item.toDomain());
+		}
+		
+		return userStories;
 	}
 
 	@Override

@@ -70,5 +70,8 @@ public class UserStory {
 	public int hashCode() {
 		return userStoryId.getId();
 	}
-
+	
+	public String toString() {
+		return "------------\nUSER-STORY\nID: '" + this.userStoryId.getId() + "',\nStory-Status: '" + this.storyStatus.toString() + "',\nStory-Punkte: '" + this.storyPoints + "',\nStory-Beschreibung: '" + this.storyDescription + "'\n";
+	}
 }

@@ -1,5 +1,7 @@
 package com.example.testManagement.application;
 
+import java.util.Collection;
+
 import com.example.testManagement.domain.model.UserStory;
 import com.example.testManagement.domain.model.UserStoryId;
 import com.example.testManagement.domain.service.ChangeStatus;
@@ -12,6 +14,18 @@ public class UserStoryService implements IUserStoryService{
 	public UserStoryService (IUserStoryRepo userStoryRepo, ChangeStatus domainService) {
 		this.userStoryRepo = userStoryRepo;
 		this.domainService = domainService;
+	}
+	
+	@Override
+	public String showAllUserStorys() {
+		String allUserStorys = "";
+		
+		Collection<UserStory> userStorys = userStoryRepo.findAll();
+		
+		for(UserStory item : userStorys) {
+			allUserStorys += item.toString();
+		}
+		return allUserStorys;
 	}
 
 	@Override
@@ -28,5 +42,4 @@ public class UserStoryService implements IUserStoryService{
 		
 		return userStory.getStoryStatus().name();
 	}
-
 }
