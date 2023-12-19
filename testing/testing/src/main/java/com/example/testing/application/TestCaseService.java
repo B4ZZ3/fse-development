@@ -62,8 +62,11 @@ public class TestCaseService implements ITestCaseService {
 	}
 
 	@Override
-	public boolean processTestCases(Collection<TestCaseTO> testCaseListeTO) {
+	public boolean processTestCases(Collection<TestCaseTO> testCaseListeTO) {	
+		for(TestCaseTO test : testCaseListeTO) {
+			testCaseRepo.save(new TestCase(new TestCaseId(test.getId()), "STARTED", test.getTestDescription()));
+		}
 		
-		return false;
+		return true;
 	}
 }

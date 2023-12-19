@@ -22,42 +22,45 @@ public class EventListener {
 		this.testCaseService = testCaseService;
 	}
 	
-		
-	 @RabbitListener(queues = QUEUE_NAME)
-	 public void listen(String message) {
-		 System.out.println("DEBUGINFO Nachricht: "+ message);
+	//RabbitMQ-Ports
+	//15672
+	//5672
+	
+	@RabbitListener(queues = QUEUE_NAME)
+	public void listen(String message) {
+		System.out.println("DEBUGINFO Nachricht: " + message);
 		 
-		 String parts[] = message.split(Pattern.quote("/"));
+		String parts[] = message.split(Pattern.quote("/"));
 		 
-		 String event = parts[0];
-		 String payload = parts[1];
+		String event = parts[0];
+		String payload = parts[1];
 		 
-		 System.out.println(event);
-		 System.out.println(payload);
+		System.out.println(event);
+		System.out.println(payload);
 		 
-//		 try {
+//		try {
 //			Thread.sleep(10000);
 //		} catch (InterruptedException e1) {
 //			// TODO Auto-generated catch block
 //			e1.printStackTrace();
 //		}
 		 
-		 if (event.equals("statusChanged")) {
+		if (event.equals("statusChanged")) {
 
-			 ObjectMapper mapper = new ObjectMapper();
-			 TestCaseTO[] testCaseListeTOArray = null;
+			ObjectMapper mapper = new ObjectMapper();
+			TestCaseTO[] testCaseListeTOArray = null;
+			
 			try {
 				testCaseListeTOArray = mapper.readValue(payload, TestCaseTO[].class);
 			} catch (JsonProcessingException e) {
-				// die folgende Meldung gehört eigentlich in ein Log.
 				System.out.println("Interner Fehler bei der Eventverarbeitung");
 				e.printStackTrace();
 			}
-			 Collection<TestCaseTO> testCaseListeTO = Arrays.asList(testCaseListeTOArray);
 			
-			 if (!testCaseService.processTestCases(testCaseListeTO))
-				// die folgende Meldung gehört eigentlich in ein Log
-				System.out.println("Verarbeitung der Bestellung fehlgeschlagen!"); 
+			Collection<TestCaseTO> testCaseListeTO = Arrays.asList(testCaseListeTOArray);
+			
+			if (!testCaseService.processTestCases(testCaseListeTO))
+				System.out.println("Verarbeitung fehlgeschlagen!"); 
 				
 		 }
 	 }
