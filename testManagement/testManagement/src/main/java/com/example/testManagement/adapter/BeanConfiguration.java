@@ -22,8 +22,8 @@ import com.example.testManagement.domain.service.ChangeStatus;
 public class BeanConfiguration {
 
 	 @Bean
-	 IUserStoryService userStoryService(IUserStoryRepo userStoryRepo, ChangeStatus domainService) {
-		return new UserStoryService(userStoryRepo, domainService);
+	 IUserStoryService userStoryService(IUserStoryRepo userStoryRepo, ITestCaseRepo testCaseRepo, ChangeStatus domainService) {
+		return new UserStoryService(userStoryRepo, testCaseRepo, domainService);
 	 }
 	 
 	 @Bean

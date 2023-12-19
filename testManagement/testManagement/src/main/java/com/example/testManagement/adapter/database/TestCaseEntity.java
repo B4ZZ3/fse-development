@@ -1,23 +1,33 @@
 package com.example.testManagement.adapter.database;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
 
 import com.example.testManagement.domain.model.TestCase;
 import com.example.testManagement.domain.model.TestCaseId;
-import com.example.testManagement.domain.model.UserStory;
-import com.example.testManagement.domain.model.UserStoryId;
 
+@Table(name="TEST_CASE")
 public class TestCaseEntity {
 
 	@Id
 	int id;
+	@Column(value = "TESTSTATUS")
 	String testStatus;
+	@Column(value = "TESTDESCRIPTION")
 	String testDescription;
+	@Column(value = "STORYID")
+	int storyId;
 	
-	public TestCaseEntity(int testCaseId, String testStatus, String testDescription) {
+	public TestCaseEntity() {
+		
+	}
+	
+	public TestCaseEntity(int testCaseId, String testStatus, String testDescription, int storyId) {
 		this.id = testCaseId;
 		this.testStatus = testStatus;
 		this.testDescription = testDescription;
+		this.storyId = storyId;
 	}
 	
 	public TestCaseEntity(TestCase testCase) {
@@ -48,6 +58,10 @@ public class TestCaseEntity {
 	
 	public String getTestDescription() {
 		return testDescription;
+	}
+	
+	public int getStoryId() {
+		return storyId;
 	}
 	
 	public TestCase toDomain() {

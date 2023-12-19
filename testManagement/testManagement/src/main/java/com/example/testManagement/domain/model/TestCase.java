@@ -41,4 +41,8 @@ public class TestCase {
 	public int hashCode() {
 		return testCaseId.getId();
 	}
+	
+	public String toString() {
+		return "------------\n  → TEST-CASE\n  ID: '" + this.testCaseId.getId() + "',\n  Test-Status: '" + this.testStatus.toString() + "',\n  Test-Beschreibung: '" + this.testDescription + "'\n";
+	}
 }
