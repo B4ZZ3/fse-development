@@ -1,16 +1,22 @@
 package com.example.testManagement.adapter.database;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
 
 import com.example.testManagement.domain.model.UserStory;
 import com.example.testManagement.domain.model.UserStoryId;
 
+@Table(name="USER_STORY")
 public class UserStoryEntity {
 
 	@Id
 	int id;
+	@Column(value = "STORYSTATUS")
 	String storyStatus;
+	@Column(value = "STORYPOINTS")
 	int storyPoints;
+	@Column(value = "STORYDESCRIPTION")
 	String storyDescription;
 	
 	public UserStoryEntity() {
