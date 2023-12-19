@@ -42,10 +42,11 @@ public class ChangeStatus {
 			for(TestCase testCase : testCases) {
 				testCase.changeTestStatus(StoryStatus.READY_FOR_TEST);
 				testCaseRepo.save(testCase, id);
+				userStory.addTestCase(testCase);
 			}
 			
-			/*DomainEvent statusChanged = new DomainEvent("statusChanged", testCases);
-			messageQueue.send(statusChanged);*/
+			DomainEvent statusChanged = new DomainEvent("statusChanged", userStory);
+			messageQueue.send(statusChanged);
 			
 			return true;
 		}

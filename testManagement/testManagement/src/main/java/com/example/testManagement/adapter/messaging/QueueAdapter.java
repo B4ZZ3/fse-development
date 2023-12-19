@@ -30,9 +30,9 @@ public class QueueAdapter implements IMessageQueue{
     	if (domainEvent.getEvent().equalsIgnoreCase("statusChanged")) {
     		
     		UserStory userStory = (UserStory)domainEvent.getObject();
-    		
     		Collection<TestCaseTO> testCaseList = new ArrayList<TestCaseTO>();
-    		for (TestCase testCase:userStory.getAllTestCases())
+    		
+    		for (TestCase testCase : userStory.getAllTestCases())
     			testCaseList.add(new TestCaseTO(testCase));
     		
     		ObjectMapper objectMapper = new ObjectMapper();
