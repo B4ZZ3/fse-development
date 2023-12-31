@@ -5,9 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Collection;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.ComponentScan;
 
-import com.example.testManagement.adapter.messaging.IMessageQueue;
 import com.example.testManagement.application.ITestCaseRepo;
 import com.example.testManagement.application.IUserStoryRepo;
 import com.example.testManagement.domain.model.StoryStatus;
@@ -19,10 +20,11 @@ import com.example.testManagement.domain.model.UserStoryId;
 @SpringBootTest
 public class ChangeStatusTest {
 
-	protected IUserStoryRepo userStoryRepo;
-	protected ITestCaseRepo testCaseRepo;
-	protected IMessageQueue messageQueue;
-	protected ChangeStatus domainService;
+	@Autowired
+	private IUserStoryRepo userStoryRepo;
+	
+	@Autowired
+	private ITestCaseRepo testCaseRepo;
 	
 	@Test
 	public void testChangeStatus() throws Exception {
@@ -37,7 +39,12 @@ public class ChangeStatusTest {
 		
 		
 		UserStory userStory2 = userStoryRepo.findById(userStory1.getUserStoryId());
-		TestCase testCase2 = (TestCase) testCaseRepo.findByUserStoryId(userStory1.getUserStoryId());
+		TestCase testCase2 = new TestCase();
+		
+		Collection<TestCase> testCases = testCaseRepo.findByUserStoryId(userStory1.getUserStoryId());
+		
+		for(TestCase testCase : testCases)
+			testCase2 = testCase;
 		
 		assertEquals("ready for test", userStory2.getStoryStatus().toString());
 		assertEquals("ready for test", testCase2.getTestStatus().toString());

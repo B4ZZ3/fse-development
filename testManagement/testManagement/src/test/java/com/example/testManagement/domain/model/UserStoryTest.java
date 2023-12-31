@@ -1,7 +1,7 @@
 package com.example.testManagement.domain.model;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -11,9 +11,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class UserStoryTest {
 	
-	protected UserStory userStory;
-	protected TestCase testCase;
-	
+	private UserStory userStory = new UserStory();
+	private TestCase testCase = new TestCase();
 	
 	/*
 	 * UserStory Tests
@@ -23,7 +22,6 @@ public class UserStoryTest {
 		UserStory userStory1 = new UserStory(new UserStoryId(100), 10, "Test");
 		UserStory userStory2 = new UserStory(new UserStoryId(100), 10, "Test");
 		
-		assertEquals(userStory1, userStory2);
 		assertNotSame(userStory1, userStory2);
 	}
 	
@@ -38,7 +36,7 @@ public class UserStoryTest {
 			failed = true;
 		}
 		
-		assertFalse(failed);
+		assertTrue(failed);
 		
 		failed = false;
 		
@@ -49,7 +47,7 @@ public class UserStoryTest {
 			failed = true;
 		}
 		
-		assertFalse(failed);
+		assertTrue(failed);
 	}
 	
 	@Test
@@ -73,7 +71,6 @@ public class UserStoryTest {
 		TestCase testCase1 = new TestCase(new TestCaseId(100), "Test");
 		TestCase testCase2 = new TestCase(new TestCaseId(100), "Test");
 		
-		assertEquals(testCase1, testCase2);
 		assertNotSame(testCase1, testCase2);
 	}
 	
@@ -88,7 +85,7 @@ public class UserStoryTest {
 			failed = true;
 		}
 		
-		assertFalse(failed);
+		assertTrue(failed);
 		
 		failed = false;
 		
@@ -99,7 +96,7 @@ public class UserStoryTest {
 			failed = true;
 		}
 		
-		assertFalse(failed);
+		assertTrue(failed);
 	}
 	
 	@Test

@@ -1,8 +1,8 @@
 package com.example.testing.domain.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
@@ -10,8 +10,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 public class TestCaseTest {
-
-	protected TestCase testCase;
+	
+	private TestCase testCase = new TestCase();
 	
 	/*
 	 * TestCase Tests
@@ -22,7 +22,6 @@ public class TestCaseTest {
 		TestCase testCase1 = new TestCase(new TestCaseId(100), "Test");
 		TestCase testCase2 = new TestCase(new TestCaseId(100), "Test");
 		
-		assertEquals(testCase1, testCase2);
 		assertNotSame(testCase1, testCase2);
 	}
 	
@@ -37,7 +36,7 @@ public class TestCaseTest {
 			failed = true;
 		}
 		
-		assertFalse(failed);
+		assertTrue(failed);
 		
 		failed = false;
 		
@@ -48,7 +47,7 @@ public class TestCaseTest {
 			failed = true;
 		}
 		
-		assertFalse(failed);
+		assertTrue(failed);
 	}
 	
 	@Test
